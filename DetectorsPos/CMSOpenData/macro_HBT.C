@@ -24,7 +24,7 @@ return v;
 void macro_HBT(){
 
 auto fileName = "/Users/cesarbernardes/Dropbox/Ubuntu_1204/AltasEnergias/ProfessorUFRGS/OrientacaoDeAlunos/Tools/CMSOpenData/cms_open_data_work_hin10/CMSSW_3_9_2_patch5/src/HiForest/HiForestProducer/HiForestAOD_DATAtest_500k.root"; //access tree here: https://www.dropbox.com/s/7yzuzy6cgpktg16/HiForestAOD_DATAtest_500k.root?dl=0
-auto outFileName = "HBT_histos.root";
+auto outFileName = "HBT_histos.root"; //output file saving the histograms, fit functions, etc...
 TFile *f = TFile::Open(fileName);
 TFile *output = new TFile(outFileName,"recreate");
 
@@ -117,7 +117,6 @@ TFitResultPtr res_gauss;
 res_gauss = h_qinv_sig_SS_Ccorr_clone->Fit(f_gauss, "S R");
 f_gauss->Draw("SameL");
 gPad->SetLogy(0);
-//h_qinv_sig_SS_Ccorr_clone->Write();
 f_exp->Write();
 f_gauss->Write();
 c->Update();
